@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+}
+.border, .heading, .content, .toolbox, .buttons {
+    border: 1px solid black;
+}
+
+.heading {
+  text-align: center;
+  font-size: 50px;
+}
+
+body {
+    background-color: lightgrey;
+    display: flex;
+    flex-flow: column;
+    
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    
+}
+
+.container {
+    width: 560px;
+    height: 560px;
+    background-color: white;
+   
+}
+
+.toolbox {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    height: 50px;
+    width: 90px;
+}
