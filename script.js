@@ -22,16 +22,23 @@ createCanvas(16);
 
 //Adjusting the colours
 function currentColour(e, colorType="none"){
+  //If random button is pressed, add rgb class to the divs
   if(colorType==="random"){
     const divs=document.querySelectorAll(".pixel");
     divs.forEach(div=>div.classList.add("rgb"));
+    divs.forEach(div=>div.classList.remove("opacity"));
+  }
+  else if(colorType==="opacity"){
+    const divs=document.querySelectorAll(".pixel");
+    divs.forEach(div=>div.classList.remove("rgb"));
+    divs.forEach(div=>div.classList.add("opacity"));
+    
   }
   else if(colorType==="black"){
     const divs=document.querySelectorAll(".pixel");
     divs.forEach(div=>div.classList.remove("rgb"));
   }
-    
-  console.log(e);
+
   //If the divs have rgb class 
   if(e.target.classList.value==="pixel rgb"){       
     let background=()=>{
@@ -44,11 +51,19 @@ function currentColour(e, colorType="none"){
     };
     e.target.style.background=background();
   }
+  //If the user has clicked the opacity button
+  else if(e.target.classList.value==="pixel opacity"){
+    e.target.style.background="black";
+    let alpha=+e.target.style.opacity;
+    if(alpha<1)
+      alpha+=0.1;
+    e.target.style.opacity=`${alpha}`;
+
+  }
   //If divs don't have rgb class
   else if(colorType==="none")
     e.target.style.background="black";
-
-}
+    }
 
 
 //Clearing the canvas
@@ -69,6 +84,9 @@ random.addEventListener("click", (e)=>{currentColour(e, "random")});
 
 const color=document.querySelector(".color");
 color.addEventListener("click", (e)=>{currentColour(e, "black")});
+
+const opacity=document.querySelector(".opacity");
+opacity.addEventListener("click", (e)=>{currentColour(e, "opacity")});
 
 
 

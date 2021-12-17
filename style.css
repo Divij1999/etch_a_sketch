@@ -1,9 +1,6 @@
 * {
     padding: 0px;
 }
-.border, .heading, .content, .toolbox, .buttons {
-    border: 1px solid black;
-}
 
 .heading {
   text-align: center;
@@ -28,6 +25,7 @@ body {
     width: 560px;
     height: 560px;
     background-color: white;
+    border:3px solid grey;
    
 }
 
@@ -35,6 +33,11 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap:20px;
 }
 
 button {
